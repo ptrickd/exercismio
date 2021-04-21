@@ -4,39 +4,73 @@
 //
 
 export class List {
-  constructor() {
-    throw new Error('Remove this statement and implement this function');
+  constructor(values = []) {
+    this.values = values
   }
 
-  append() {
-    throw new Error('Remove this statement and implement this function');
+  append(list) {
+
+    for (let i = 0; i < list.values.length; i++) {
+      this.values.push(list.values[i])
+    }
+    return this
   }
 
-  concat() {
-    throw new Error('Remove this statement and implement this function');
+  concat(listOfList) {
+    for (let j = 0; j < listOfList.values.length; j++) {
+      for (let i = 0; i < listOfList.values[j].values.length; i++) {
+        this.values.push(listOfList.values[j].values[i])
+      }
+    }
+
+    return this
   }
 
-  filter() {
-    throw new Error('Remove this statement and implement this function');
+  filter(func) {
+    for (let i = 0; i < this.values.length; i++) {
+      if (!func(this.values[i])) this.values.splice(i, 1)
+    }
+    return this
   }
 
-  map() {
-    throw new Error('Remove this statement and implement this function');
+  map(func) {
+    let result;
+    for (let i = 0; i < this.values.length; i++) {
+      result = func(this.values[i])
+      if (result) {
+        this.values[i] = result
+      }
+    }
+    return this
   }
 
   length() {
-    throw new Error('Remove this statement and implement this function');
+    return this.values.length
   }
 
-  foldl() {
-    throw new Error('Remove this statement and implement this function');
+  foldl(func, initialValue) {
+    let result = initialValue
+    for (let i = 0; i < this.values.length; i++) {
+      result = func(result, this.values[i])
+
+    }
+    return result
   }
 
-  foldr() {
-    throw new Error('Remove this statement and implement this function');
+  foldr(func, initialValue) {
+    let result = initialValue
+    for (let i = this.values.length - 1; i >= 0; i--) {
+      result = func(result, this.values[i])
+    }
+    return result
   }
 
   reverse() {
-    throw new Error('Remove this statement and implement this function');
+    let newArray = []
+    for (let i = this.values.length - 1; i >= 0; i--) {
+      newArray.push(this.values[i])
+    }
+    this.values = newArray
+    return this
   }
 }
