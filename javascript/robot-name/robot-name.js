@@ -42,15 +42,3 @@ const LETTERS = [
     'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 ]
 
-// let robot = new Robot();
-// const NUMBER_OF_ROBOTS = 10000;
-// const usedNames = new Set();
-
-// usedNames.add(robot.name);
-// for (let i = 0; i < NUMBER_OF_ROBOTS; i += 1) {
-//     robot.reset();
-//     // console.log(robot.name)
-//     usedNames.add(robot.name);
-// }
-
-// console.log(usedNames.size)
